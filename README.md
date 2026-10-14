@@ -1,4 +1,4 @@
-# EasySignage Custom Apps
+# Digital Signage Custom Apps
 
 Examples, a starter template and **AI agent skills** for building
 [EasySignage](https://easysignage.com) custom apps: offline HTML5 apps that
