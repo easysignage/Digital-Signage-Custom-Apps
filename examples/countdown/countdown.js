@@ -4,6 +4,9 @@
   var panel = EasySignage.read();
   var tags = panel.tags || {};
 
+  // Applies the theme and accent tags, and the is-portrait class.
+  EasySignageTheme.apply(panel);
+
   // Parse "YYYY-MM-DDTHH:MM" by hand as local time. Date.parse of strings
   // without a timezone behaves differently across older webviews.
   function parseLocal(s) {
@@ -21,6 +24,7 @@
 
   if (!target) {
     unitsEl.style.display = "none";
+    doneEl.className = "muted";
     doneEl.textContent = "Set the event_date tag on this player, e.g. 2026-12-01T09:00";
     return;
   }

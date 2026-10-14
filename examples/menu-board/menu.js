@@ -5,6 +5,9 @@
   var tags = panel.tags || {};
   var data = window.MENU_DATA;
 
+  // Applies the theme tag and the is-portrait class.
+  EasySignageTheme.apply(panel);
+
   // Pick the menu named by the `menu` tag, or the first one.
   var keys = Object.keys(data.menus);
   var menu = data.menus[tags.menu] || data.menus[keys[0]];
@@ -46,6 +49,4 @@
   var special = document.getElementById("special");
   if (tags.special) special.textContent = tags.special;
   else special.style.display = "none";
-
-  if (window.innerHeight > window.innerWidth) document.body.className = "portrait";
 })();

@@ -14,6 +14,7 @@ One package, different content on every screen: each screen shows the promotion 
 | Tag | What it does |
 |---|---|
 | `zone` | `north`, `south` or `east`. Anything else, or no tag, shows the default promo. |
+| `accent` | Colour of the accent bar, e.g. `#ff6a00` |
 
 ## Preview in a browser
 

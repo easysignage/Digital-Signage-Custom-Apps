@@ -14,6 +14,8 @@ A minimal custom app to build your own from. It greets the screen by name and sh
 | Tag | What it does |
 |---|---|
 | `zone` | Optional, shown under the heading |
+| `theme` | `dark` (default), `light` or `contrast` |
+| `accent` | Highlight colour, e.g. `#ff6a00` |
 
 ## Preview in a browser
 
@@ -28,7 +30,7 @@ If your browser doesn't pick up the values, serve the folder with
 
 ## Customise it
 
-Edit `app.js` and `style.css`. Keep `easysignage.js` unchanged and loaded first. Read the [best practices](../../docs/best-practices.md) before building something big.
+Edit `app.js` and `style.css`. Keep `easysignage.js`, `theme.css`, `theme.js` and `fonts/` unchanged; style with the theme variables and override colours in `style.css` to match your brand. See the [theme guide](../../docs/theme-guide.md). Read the [best practices](../../docs/best-practices.md) before building something big.
 
 To repackage after editing, run this from the repo root:
 

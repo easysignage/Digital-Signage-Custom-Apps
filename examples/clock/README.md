@@ -15,7 +15,8 @@ A full-screen clock and date using the screen's local time. Works fully offline.
 |---|---|
 | `clock_format` | `12` or `24` (default `24`) |
 | `greeting` | Text under the date, e.g. `Welcome to Level 3` |
-| `accent` | Colour of the time, e.g. `#ff6a00` |
+| `theme` | `dark` (default), `light` or `contrast` |
+| `accent` | Colour of AM/PM and the greeting, e.g. `#ff6a00` |
 
 ## Preview in a browser
 

@@ -12,23 +12,30 @@
         tags.event_name = "Grand Opening"
         tags.event_date = "2026-12-01T09:00"   (device local time, YYYY-MM-DDTHH:MM)
         tags.done_text  = text shown once the time is reached (default "It's here!")
+        tags.theme      = "dark" (default), "light" or "contrast"
+        tags.accent     = a hex colour for the numbers, e.g. "#c8b6ff"
 
       Preview:
         index.html?tags.event_name=Grand%20Opening&tags.event_date=2026-12-01T09:00
     -->
+    <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 id="event"></h1>
-    <div id="units">
-      <div class="unit"><span id="d" class="num">0</span><span class="label">Days</span></div>
-      <div class="unit"><span id="h" class="num">00</span><span class="label">Hours</span></div>
-      <div class="unit"><span id="m" class="num">00</span><span class="label">Minutes</span></div>
-      <div class="unit"><span id="s" class="num">00</span><span class="label">Seconds</span></div>
-    </div>
-    <p id="done"></p>
+    <main class="screen center">
+      <p class="label">Countdown</p>
+      <h1 id="event"></h1>
+      <div id="units" class="row">
+        <div class="unit card"><span id="d" class="num">0</span><span class="label">Days</span></div>
+        <div class="unit card"><span id="h" class="num">00</span><span class="label">Hours</span></div>
+        <div class="unit card"><span id="m" class="num">00</span><span class="label">Minutes</span></div>
+        <div class="unit card"><span id="s" class="num">00</span><span class="label">Seconds</span></div>
+      </div>
+      <p id="done" class="display accent"></p>
+    </main>
 
     <script src="easysignage.js"></script>
+    <script src="theme.js"></script>
     <script src="countdown.js"></script>
   </body>
 </html>

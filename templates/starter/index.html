@@ -4,25 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My EasySignage App</title>
+    <!-- The shared signage theme first, then your own styles. -->
+    <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!--
       EasySignage custom app starter.
 
-      1. Edit app.js and style.css.
+      1. Edit app.js and style.css (see docs/theme-guide.md for the design system).
       2. Preview: open index.html in a browser with test values, e.g.
-         index.html?player_id=TEST&name=Lobby&resolution=1920x1080&tags.zone=north
+         index.html?player_id=TEST&name=Lobby&resolution=1920x1080&tags.zone=north&tags.theme=light
       3. Package: ./scripts/package.sh templates/starter   (from the repo root)
       4. Upload the .zip under Media, add it to a playlist, assign to a screen.
     -->
-    <main id="app">
+    <main class="screen center">
+      <p class="label" id="label">Welcome</p>
       <h1 id="title">Hello, screen</h1>
-      <p id="subtitle"></p>
+      <p class="muted" id="subtitle"></p>
     </main>
 
     <!-- Load the reader first, as a classic script (never type="module"). -->
     <script src="easysignage.js"></script>
+    <script src="theme.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

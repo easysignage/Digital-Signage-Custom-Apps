@@ -7,6 +7,10 @@
   var panel = EasySignage.read();
   var tags = panel.tags || {};
 
+  // Applies the `theme` (dark, light, contrast) and `accent` tags, and adds
+  // an is-portrait / is-landscape class to <html>.
+  EasySignageTheme.apply(panel);
+
   var name = panel.name || "this screen";
   var zone = tags.zone || "";
 
@@ -14,10 +18,4 @@
   document.getElementById("subtitle").textContent = zone
     ? "Zone: " + zone
     : "Add a 'zone' tag to this player to personalise this text.";
-
-  // Portrait screens get a class you can style in style.css.
-  var res = (panel.resolution || "").split("x");
-  var w = parseInt(res[0], 10) || window.innerWidth;
-  var h = parseInt(res[1], 10) || window.innerHeight;
-  if (h > w) document.body.className += " portrait";
 })();

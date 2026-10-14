@@ -1,84 +1,65 @@
-/* Flexbox + margins only (no grid, no gap) for older signage webviews. */
-html, body { margin: 0; height: 100%; overflow: hidden; cursor: none; }
-* { box-sizing: border-box; }
+/* Built on theme.css. This file shows how to BRAND the theme: override its
+   colour variables, and leave sizes, fonts and spacing to the theme so text
+   stays readable from the queue.
 
-body {
-  display: flex;
-  flex-direction: column;
-  background: #1b1410;
-  color: #f6efe7;
-  font-family: Georgia, "Times New Roman", serif;
-  padding: 4vh 4vw;
+   The brand palette applies to the default (dark) theme only, so the
+   `theme` tag can still switch a screen to light or high contrast.
+   Contrast against --bg: text 16:1, muted 9.4:1, accent 9.4:1. */
+:root:not(.theme-light):not(.theme-contrast) {
+  --bg: #1b1410;
+  --surface: #2a201a;
+  --line: #5a4330;
+  --text: #f6efe7;
+  --muted: #c9b8a3;
+  --accent: #e8b06a;
+  --on-accent: #1b1410;
 }
 
 header h1 {
-  margin: 0 0 3vh;
-  font-size: 6vw;
-  font-weight: normal;
-  color: #e8b06a;
+  margin-bottom: var(--space-4);
   text-align: center;
-  letter-spacing: 0.05em;
+  color: var(--accent);
 }
 
 #sections {
-  flex: 1;
   display: flex;
-  margin: 0 -2vw;
+  margin: 0 calc(var(--space-4) * -1); /* margins instead of `gap` */
 }
 
 .section {
   flex: 1;
-  margin: 0 2vw;
+  margin: 0 var(--space-4);
 }
 
 .section h2 {
-  margin: 0 0 2vh;
-  padding-bottom: 1vh;
-  font-size: 2.6vw;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-bottom: 2px solid #5a4330;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-1);
+  font-size: var(--text-sm);
+  text-transform: uppercase;      /* caps only for short category labels */
+  letter-spacing: var(--tracking-label);
+  color: var(--muted);
+  border-bottom: 2px solid var(--line);
 }
 
 .item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2.4vh;
+  margin-bottom: var(--space-3);
 }
 
-.item-name { font-size: 2.2vw; }
-.item-note { font-size: 1.4vw; color: #b9a690; margin-top: 0.4vh; font-style: italic; }
-.item-price { font-size: 2.2vw; color: #e8b06a; margin-left: 2vw; white-space: nowrap; }
-
-.badge {
-  display: inline-block;
-  margin-left: 1vw;
-  padding: 0.2vh 0.8vw;
-  font-size: 1.1vw;
-  font-family: Arial, sans-serif;
-  vertical-align: middle;
-  background: #e8b06a;
-  color: #1b1410;
-  border-radius: 999px;
+.item-name { font-weight: var(--weight-bold); }
+.item-note { font-size: var(--text-sm); color: var(--muted); }
+.item-price {
+  margin-left: var(--space-3);
+  font-weight: var(--weight-bold);
+  color: var(--accent);
+  white-space: nowrap;
 }
+.item .badge { margin-left: var(--space-2); }
 
-footer {
-  margin-top: 2vh;
-  padding: 2vh;
-  text-align: center;
-  font-size: 2.2vw;
-  background: #e8b06a;
-  color: #1b1410;
-  border-radius: 8px;
-}
+footer { margin-top: var(--space-3); }
 
-/* Portrait: stack sections and size from width. */
-.portrait #sections { flex-direction: column; }
-.portrait header h1 { font-size: 10vw; }
-.portrait .section h2 { font-size: 5vw; }
-.portrait .item-name, .portrait .item-price { font-size: 4.2vw; }
-.portrait .item-note { font-size: 2.8vw; }
-.portrait .badge { font-size: 2.2vw; }
-.portrait footer { font-size: 4vw; }
+/* Portrait: stack the sections at their natural height. */
+.is-portrait #sections { flex-direction: column; }
+.is-portrait .section { flex: 0 0 auto; margin-bottom: var(--space-6); }

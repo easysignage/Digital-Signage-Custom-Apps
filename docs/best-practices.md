@@ -41,35 +41,18 @@ days without a reload. These rules keep your app working on every screen.
 - Size text for reading across a room, and design for both **landscape and
   portrait**. Detect portrait from `panel.resolution` or the window size.
 
-## Readability and accessibility
+## Design: fonts, colours and readability
 
-People read signage from across a room, often while walking past. Design for
-the person at the back.
+Use the ready-made signage theme (`sdk/theme.css`) and follow the
+**[theme guide](theme-guide.md)**. The essentials:
 
-- **Contrast:** at least 4.5:1 between text and background, ideally 7:1.
-  Avoid text over busy photos; add a dark overlay or a solid panel behind it.
-- **Text size:** body text at least about 3vh (about 32px on a 1080p screen),
-  headlines at least about 6vh. A common rule of thumb is about 2.5cm (1 inch)
-  of letter height for every 3m (10ft) of viewing distance.
-- **Less text:** at most about 7 short lines per screen. Give each message
-  long enough on screen to be read twice.
-- **Don't rely on colour alone.** Pair a colour with an icon or a word
-  ("Open" / "Closed", not just green / red).
-- **No flashing** more than 3 times per second. It can trigger seizures.
-- **Gentle motion:** keep animations slow and subtle, and turn them off for
-  people who ask for less motion:
-  ```css
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
-  ```
-  Older players ignore this query, which is harmless.
-- **Semantics:** set `<html lang="en">` (or your language), use real headings,
-  and give meaningful images `alt` text, so screen readers and translation
-  tools work.
-
-The [accessibility reference](../skills/easysignage-custom-app/references/accessibility.md)
-has more detail.
+- Bundled, highly legible font; body text at least about 48px on a 1080p
+  screen; nothing under about 28px; no thin weights.
+- At most 30 to 40 words per screen, one message per screen.
+- Dark background with off-white text by default; contrast at least 4.5:1,
+  ideally 7:1.
+- Everything inside a 5% safe margin; works in landscape and portrait.
+- Nothing flashes more than 3 times a second; slow, gentle motion.
 
 ## Content and data
 

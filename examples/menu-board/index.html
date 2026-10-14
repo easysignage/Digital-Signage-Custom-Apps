@@ -14,20 +14,25 @@
       Optional player tags:
         tags.menu    = which menu to show, e.g. "breakfast" or "lunch" (default: first)
         tags.special = a line shown in the footer banner
+        tags.theme   = "dark" (default, warm brand colours), "light" or "contrast"
 
       Preview:
         index.html?tags.menu=lunch&tags.special=Free%20cookie%20with%20any%20coffee
     -->
+    <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1 id="menu-title"></h1>
-    </header>
-    <main id="sections"></main>
-    <footer id="special"></footer>
+    <div class="screen">
+      <header>
+        <h1 id="menu-title"></h1>
+      </header>
+      <main id="sections" class="grow"></main>
+      <footer id="special" class="banner"></footer>
+    </div>
 
     <script src="easysignage.js"></script>
+    <script src="theme.js"></script>
     <script src="menu-data.js"></script>
     <script src="menu.js"></script>
   </body>

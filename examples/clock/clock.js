@@ -5,6 +5,9 @@
   var tags = panel.tags || {};
   var use12h = tags.clock_format === "12";
 
+  // Applies the theme and accent tags.
+  EasySignageTheme.apply(panel);
+
   var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
@@ -14,8 +17,6 @@
   var dateEl = document.getElementById("date");
 
   document.getElementById("greeting").textContent = tags.greeting || "";
-  if (tags.accent) timeEl.style.color = tags.accent;
-  if (window.innerHeight > window.innerWidth) document.body.className = "portrait";
 
   function pad(n) { return n < 10 ? "0" + n : String(n); }
 

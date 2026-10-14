@@ -15,6 +15,7 @@ A cafe menu board with items and prices from a local data file. Each screen can 
 |---|---|
 | `menu` | Which menu to show: `breakfast` or `lunch` (default: the first menu) |
 | `special` | Optional banner at the bottom, e.g. `Free cookie with any coffee` |
+| `theme` | `dark` (default, warm brand colours), `light` or `contrast` |
 
 ## Preview in a browser
 
@@ -29,7 +30,7 @@ If your browser doesn't pick up the values, serve the folder with
 
 ## Customise it
 
-Edit items, prices and menus in `menu-data.js`, then re-zip and re-upload. The data is a `.js` file rather than `.json` because many players can't `fetch()` local files.
+Edit items, prices and menus in `menu-data.js`, then re-zip and re-upload. Brand colours are set in `style.css` by overriding theme variables; this is the example to copy when restyling the theme ([theme guide](../../docs/theme-guide.md)). The data is a `.js` file rather than `.json` because many players can't `fetch()` local files.
 
 To repackage after editing, run this from the repo root:
 

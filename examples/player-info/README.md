@@ -28,7 +28,7 @@ If your browser doesn't pick up the values, serve the folder with
 
 ## Customise it
 
-This is EasySignage's official sample. `demo.js` is display code only; the integration is the single `EasySignage.read()` call.
+This is EasySignage's official sample. It's a diagnostic screen meant to be read up close, so it doesn't use the signage theme and its text is small on purpose. `demo.js` is display code only; the integration is the single `EasySignage.read()` call.
 
 To repackage after editing, run this from the repo root:
 

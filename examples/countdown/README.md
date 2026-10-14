@@ -16,6 +16,8 @@ Counts down the days, hours, minutes and seconds to an event. Each screen can co
 | `event_name` | Heading, e.g. `Grand Opening` |
 | `event_date` | Target in screen local time, `YYYY-MM-DDTHH:MM`, e.g. `2026-12-01T09:00` |
 | `done_text` | Shown when the time is reached (default `It's here!`) |
+| `theme` | `dark` (default), `light` or `contrast` |
+| `accent` | Colour of the numbers, e.g. `#c8b6ff` |
 
 ## Preview in a browser
 

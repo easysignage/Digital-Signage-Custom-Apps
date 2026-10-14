@@ -43,6 +43,9 @@ Step by step: [Getting started](docs/getting-started.md).
 my-app.zip
 ├── index.html       ← entry point, must be at the top level
 ├── easysignage.js   ← reads player attributes (copy unchanged)
+├── theme.css        ← signage theme: font, sizes, colours (optional)
+├── theme.js         ← applies the theme and accent tags (optional)
+├── fonts/           ← bundled Atkinson Hyperlegible font
 ├── app.js
 ├── style.css
 └── images/          ← bundle every asset, use relative paths
@@ -77,11 +80,11 @@ setup and preview steps.
 | Example | What it shows | Tags it reads | Download |
 |---|---|---|---|
 | [player-info](examples/player-info/) | Every attribute the player sends. Use it to debug a screen. | all | [⬇ player-info.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/player-info.zip) |
-| [clock](examples/clock/) | Full-screen clock and date, fully offline | `clock_format`, `greeting`, `accent` | [⬇ clock.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/clock.zip) |
-| [countdown](examples/countdown/) | Countdown to an event set per screen | `event_name`, `event_date`, `done_text` | [⬇ countdown.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/countdown.zip) |
-| [menu-board](examples/menu-board/) | Menu from a local data file, chosen per screen | `menu`, `special` | [⬇ menu-board.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/menu-board.zip) |
-| [zone-promo](examples/zone-promo/) | Different promo and image per store zone | `zone` | [⬇ zone-promo.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/zone-promo.zip) |
-| [starter](templates/starter/) | Minimal template to build your own app | `zone` | [⬇ starter.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/starter.zip) |
+| [clock](examples/clock/) | Full-screen clock and date, fully offline | `clock_format`, `greeting`, `theme`, `accent` | [⬇ clock.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/clock.zip) |
+| [countdown](examples/countdown/) | Countdown to an event set per screen | `event_name`, `event_date`, `done_text`, `theme`, `accent` | [⬇ countdown.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/countdown.zip) |
+| [menu-board](examples/menu-board/) | Menu from a local data file, chosen per screen | `menu`, `special`, `theme` | [⬇ menu-board.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/menu-board.zip) |
+| [zone-promo](examples/zone-promo/) | Different promo and image per store zone | `zone`, `accent` | [⬇ zone-promo.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/zone-promo.zip) |
+| [starter](templates/starter/) | Minimal template, built on the signage theme | `zone`, `theme`, `accent` | [⬇ starter.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/starter.zip) |
 
 To use one: download the zip, upload it under **Media** in EasySignage, add
 it to a playlist, and assign the playlist to a screen. Then add the tags
@@ -93,7 +96,8 @@ To change an example, edit its folder and repackage it with
 ## Build with AI agents
 
 This repo includes agent skills that teach AI agents the rules of EasySignage
-custom apps: offline, older players, player tags, accessibility, no secrets.
+custom apps: offline, older players, player tags, signage design and
+accessibility, no secrets.
 What they build works on real screens.
 
 | Skill | Use it to | Download |
@@ -138,6 +142,26 @@ Then describe the screen you want:
 
 More setups and prompts: [AI agents guide](docs/ai-agents.md).
 
+## Signage theme
+
+Every example is built on a ready-made **signage theme** (`sdk/theme.css`)
+based on signage legibility research and WCAG:
+
+- **Font:** bundled [Atkinson Hyperlegible](https://github.com/googlefonts/atkinson-hyperlegible),
+  designed by the Braille Institute so `I l 1` and `O 0` are easy to tell
+  apart.
+- **Size:** a text scale that reads from across a room. Body text is about
+  48px on 1080p, and portrait screens get the same sizes as landscape.
+- **Colour:** dark, light and high-contrast palettes, all above 7:1 text
+  contrast, switchable per screen with the `theme` tag. The `accent` tag sets
+  a brand colour.
+- **Layout and motion:** a 5% overscan-safe margin, and gentle motion that
+  switches off for viewers who ask for less.
+
+Rebrand it by overriding a few colour variables. Read the
+**[theme guide](docs/theme-guide.md)** for the rules: fonts, sizes for
+viewing distance, words per screen, colours to avoid, and QR code sizes.
+
 ## Rules that keep apps working
 
 - `index.html` at the zip root, all assets bundled, relative paths only.
@@ -153,13 +177,13 @@ More setups and prompts: [AI agents guide](docs/ai-agents.md).
 ## Repository layout
 
 ```
-docs/          guides: getting started, best practices, AI agents
+docs/          guides: getting started, theme guide, best practices, AI agents
 downloads/     ready-to-upload zips of every example and skill
 examples/      complete example apps
 templates/     starter app to copy
-sdk/           easysignage.js, the player-attributes reader
+sdk/           easysignage.js (player attributes) and the signage theme
 skills/        AI agent skills (also a Claude Code plugin)
-scripts/       check.sh, package.sh, build-downloads.sh, sync-reader.sh
+scripts/       check.sh, package.sh, build-downloads.sh, sync-shared.sh
 ```
 
 ## Links

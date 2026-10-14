@@ -1,35 +1,28 @@
-html, body { margin: 0; height: 100%; overflow: hidden; cursor: none; }
-* { box-sizing: border-box; }
+/* Built on theme.css: sizes, colours and spacing come from its variables. */
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  text-align: center;
-  background: #10002b;
-  background: linear-gradient(135deg, #10002b, #3c096c);
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-}
+#event { margin: var(--space-2) 0 var(--space-6); }
 
-h1 { margin: 0 0 6vh; font-size: 6vw; font-weight: 600; }
-
-#units { display: flex; }
+/* Spacing with margins, not `gap`, for older players. */
+#units { margin: 0 calc(var(--space-2) * -1); }
 
 .unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 16vw;
-  margin: 0 1.5vw;
-  padding: 3vh 1vw;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  min-width: calc(var(--u) * 26);
+  margin: 0 var(--space-2);
 }
 
-.num { font-size: 9vw; font-weight: 200; line-height: 1; }
-.label { margin-top: 1.5vh; font-size: 1.8vw; text-transform: uppercase; letter-spacing: 0.15em; color: #c8b6ff; }
+.num {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
 
-#done { margin: 0; font-size: 5vw; }
+.unit .label { margin-top: var(--space-2); }
+
+/* Portrait: 2 x 2 instead of one row. */
+.is-portrait #units { flex-wrap: wrap; justify-content: center; max-width: calc(var(--u) * 64); }
+.is-portrait .unit { margin-bottom: var(--space-4); }

@@ -74,6 +74,8 @@ for f in $(echo "$files" | grep -E '\.css$|\.html?$' || true); do
   if has 'display:\s*grid' "$path"; then warn "$f uses CSS grid. Older players need flexbox."; fi
   if has 'clamp\(' "$path"; then warn "$f uses clamp(), which older players do not support."; fi
   if has '(^|[;{ ])gap:' "$path"; then warn "$f uses gap. Older players ignore it with flexbox; use margins."; fi
+  if has 'font-size:\s*(1?[0-9]|2[0-3])(\.[0-9]+)?px' "$path"; then warn "$f sets text below 24px. It is hard to read on a screen; use the theme sizes (--text-xs is the minimum)."; fi
+  if has 'font-weight:\s*[123]00' "$path"; then warn "$f uses a thin font weight (100-300), which disappears at a distance. Use 400 or 700."; fi
 done
 
 # 6. Anything that looks like a secret. Custom apps are copied to every screen

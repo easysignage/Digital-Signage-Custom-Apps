@@ -26,6 +26,7 @@
   };
 
   var panel = EasySignage.read();
+  EasySignageTheme.apply(panel);  // accent tag and is-portrait class
   var zone = (panel.tags && panel.tags.zone) || "";
   // Tag values are case-sensitive; normalise so "North" also matches.
   var promo = PROMOS[zone.toLowerCase()] || PROMOS["default"];
@@ -33,10 +34,4 @@
   document.getElementById("image").src = promo.image;
   document.getElementById("headline").textContent = promo.headline;
   document.getElementById("detail").textContent = promo.detail;
-
-  // Prefer the reported resolution; fall back to the window size.
-  var res = (panel.resolution || "").split("x");
-  var w = parseInt(res[0], 10) || window.innerWidth;
-  var h = parseInt(res[1], 10) || window.innerHeight;
-  if (h > w) document.body.className = "portrait";
 })();

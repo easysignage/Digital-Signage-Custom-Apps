@@ -1,6 +1,6 @@
 ---
 name: easysignage-custom-app
-description: Build, fix or review an EasySignage custom app (an offline HTML5 app packaged as a .zip with index.html at the root, formerly "Offline HTML") for digital signage screens. Use when the user wants signage content, a screen app, a menu board, a lobby/welcome screen, a clock, a countdown, per-screen or per-location content driven by player tags, or asks how to read EasySignage player attributes (player_id, name, screen_id, resolution, playlist_id, tags) or package an app for EasySignage.
+description: Build, fix, review or restyle an EasySignage custom app (an offline HTML5 app packaged as a .zip with index.html at the root, formerly "Offline HTML") for digital signage screens. Use when the user wants signage content, a screen app, a menu board, a lobby/welcome screen, a clock, a countdown, per-screen or per-location content driven by player tags, or asks how to read EasySignage player attributes (player_id, name, screen_id, resolution, playlist_id, tags) or package an app for EasySignage, or asks how signage content should look (fonts, colours, text size, layout).
 ---
 
 # EasySignage custom app
@@ -34,15 +34,21 @@ offline on old signage webviews, then a `.zip` the user uploads.
    to use a regular EasySignage website/URL media item instead.
 7. **Built for a screen, not a browser.** Full-screen, no scrolling
    (`overflow: hidden`), no hover or click interactions, `cursor: none`,
-   about 40px overscan-safe padding, text large enough to read across a room.
+   everything inside a 5% overscan-safe margin (`.screen` in theme.css).
    Support both landscape and portrait.
-8. **Readable and accessible from a distance.** See
-   `references/accessibility.md`. In short: contrast of at least 4.5:1
-   (aim for 7:1), body text at least about 3vh (about 32px on a 1080p screen)
-   and headlines at least about 6vh, at most about 7 lines of text per
-   screen, colour never the only signal, no flashing more than 3 times a
-   second, slow and subtle motion that stops under
-   `prefers-reduced-motion`, `<html lang="...">`, and meaningful `alt` text.
+8. **Use the signage theme and its design rules.** Build on
+   `assets/theme.css` and `assets/theme.js` and follow
+   `references/design.md`. In short:
+   - **Type:** the bundled Atkinson Hyperlegible font (or a plain
+     sans-serif brand font), body text at least `--text-md` (about 48px on
+     1080p), nothing below `--text-xs`, no thin weights, mixed case.
+   - **Words:** at most 30 to 40 per screen (3×5 rule), one message per
+     screen.
+   - **Colour:** dark background by default, contrast at least 4.5:1 (target
+     7:1), colour never the only signal.
+   - **Layout and motion:** everything inside the 5% safe area, nothing
+     flashing more than 3 times per second, slow fades only,
+     `<html lang>` and `alt` text.
 
 ## Reading player attributes
 
@@ -96,17 +102,23 @@ add to each player in EasySignage.
 2. **Scaffold** a folder:
    ```
    my-app/
-     index.html        entry point (top level)
+     index.html        entry point (top level), <html lang="en">
      easysignage.js    copied from assets/, unchanged
+     theme.css         copied from assets/; load before style.css
+     theme.js          copied from assets/; call EasySignageTheme.apply(panel)
+     fonts/            copied from assets/ (Atkinson Hyperlegible + OFL.txt)
      app.js            your code (ES5)
-     style.css
+     style.css         app styles: use theme variables, override colours to brand
      data.js           optional: window.APP_DATA = {...}
-     images/ fonts/    optional: bundled assets
+     images/           optional: bundled assets
    ```
    If this repository is available, start from `templates/starter/` and look
    at `examples/` for patterns (clock, countdown, menu-board, zone-promo,
    player-info).
-3. **Build** following the hard rules. Write user-visible strings with
+3. **Build** following the hard rules. Lay out with `.screen` and the theme
+   classes, size text with the `--text-*` variables, and brand by
+   overriding colour variables only (see `references/design.md`). Support
+   the `theme` and `accent` tags (theme.js does it). Write user-visible strings with
    `textContent`, not `innerHTML`, when they come from tags or data. Make
    missing tags degrade to a sensible default, never a blank or broken screen.
    For timers, use one `setInterval`; avoid memory growth since apps can run
@@ -137,8 +149,10 @@ Before finishing, confirm every item:
 - [ ] Works with no tags at all and with `tags = {}`
 - [ ] Fits landscape and portrait with no scrolling or clipped text
 - [ ] Tag/data strings rendered with `textContent`
-- [ ] Contrast at least 4.5:1, text readable from viewing distance, nothing flashes
-- [ ] `<html lang>` set; animations respect `prefers-reduced-motion`
+- [ ] Built on theme.css; text sized with `--text-*`, nothing below `--text-xs`
+- [ ] At most 30 to 40 words per screen; no thin weights; caps only for labels
+- [ ] Brand colours checked: contrast at least 4.5:1 (target 7:1)
+- [ ] Nothing flashes; motion slow; `<html lang>` and `alt` set
 - [ ] No `window.BroadSignObject` (removed; use `EasySignage.read()`)
 
 Docs: https://easysignage.com/help/custom-apps/digital-signage-custom-apps/
