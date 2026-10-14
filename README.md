@@ -92,9 +92,21 @@ To change an example, edit its folder and repackage it with
 
 ## Build with AI agents
 
-This repo includes agent skills that teach AI coding agents the rules of
-EasySignage custom apps (offline, older players, player tags, no secrets), so
-what they build works on real screens.
+This repo includes agent skills that teach AI agents the rules of EasySignage
+custom apps: offline, older players, player tags, accessibility, no secrets.
+What they build works on real screens.
+
+| Skill | Use it to | Download |
+|---|---|---|
+| [easysignage-custom-app](skills/easysignage-custom-app/SKILL.md) | Build, fix, review and package a custom app | [⬇ skill zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/easysignage-custom-app-skill.zip) |
+| [easysignage-broadsign-migration](skills/easysignage-broadsign-migration/SKILL.md) | Convert a Broadsign HTML5 creative | [⬇ skill zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/easysignage-broadsign-migration-skill.zip) |
+
+**Claude.ai (web, desktop, mobile):** download the skill zip above, then go
+to **Settings → Capabilities → Skills → Upload skill**. Code execution must
+be turned on.
+
+**Claude Team / Enterprise:** an admin can upload the zip once for everyone
+under **Organization settings → Capabilities → Skills**.
 
 **Claude Code** (install once, use in any project):
 
@@ -103,21 +115,26 @@ what they build works on real screens.
 /plugin install easysignage-custom-apps@easysignage
 ```
 
+Get updates later with `/plugin marketplace update easysignage`.
+
 **Codex, Cursor, GitHub Copilot and others:** open this repo in your agent.
 It reads [`AGENTS.md`](AGENTS.md) automatically.
 
-**ChatGPT / Claude.ai:** paste
+**ChatGPT and other chat assistants:** paste
 [`SKILL.md`](skills/easysignage-custom-app/SKILL.md) into the chat.
 
-Then ask, for example:
+Then describe the screen you want:
 
 > Build an EasySignage menu board for my cafe with breakfast and lunch menus
 > chosen per screen by a `menu` tag. Package it as a zip.
 
-| Skill | Use it to |
-|---|---|
-| [easysignage-custom-app](skills/easysignage-custom-app/SKILL.md) | Build, fix, review and package a custom app |
-| [easysignage-broadsign-migration](skills/easysignage-broadsign-migration/SKILL.md) | Convert a Broadsign HTML5 creative |
+> Make a lobby welcome screen for our office with the time, the date and a
+> greeting from the `greeting` tag. Our brand colour is #0057b8.
+
+> Create an EasySignage app that shows a different promotion per store zone
+> using the `zone` tag, with the images in ./promo-images.
+
+> Migrate our Broadsign HTML5 creative in ./old-creative to EasySignage.
 
 More setups and prompts: [AI agents guide](docs/ai-agents.md).
 
@@ -137,7 +154,7 @@ More setups and prompts: [AI agents guide](docs/ai-agents.md).
 
 ```
 docs/          guides: getting started, best practices, AI agents
-downloads/     ready-to-upload zips of every example
+downloads/     ready-to-upload zips of every example and skill
 examples/      complete example apps
 templates/     starter app to copy
 sdk/           easysignage.js, the player-attributes reader

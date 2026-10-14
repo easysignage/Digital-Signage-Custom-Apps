@@ -5,10 +5,22 @@ agents the rules of EasySignage custom apps. With a skill installed, the agent
 produces apps that work offline and on older players, read player tags
 correctly, and contain no secrets.
 
-| Skill | Use it to |
-|---|---|
-| [`easysignage-custom-app`](../skills/easysignage-custom-app/SKILL.md) | Build, fix, review and package a custom app |
-| [`easysignage-broadsign-migration`](../skills/easysignage-broadsign-migration/SKILL.md) | Convert a Broadsign HTML5 creative to EasySignage |
+| Skill | Use it to | Download |
+|---|---|---|
+| [`easysignage-custom-app`](../skills/easysignage-custom-app/SKILL.md) | Build, fix, review and package a custom app | [⬇ skill zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/easysignage-custom-app-skill.zip) |
+| [`easysignage-broadsign-migration`](../skills/easysignage-broadsign-migration/SKILL.md) | Convert a Broadsign HTML5 creative to EasySignage | [⬇ skill zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/easysignage-broadsign-migration-skill.zip) |
+
+## Claude.ai (web, desktop and mobile)
+
+1. Download a skill zip from the table above.
+2. In Claude.ai, go to **Settings → Capabilities → Skills** and choose
+   **Upload skill**.
+3. Make sure code execution is turned on (same settings page).
+4. Start a chat and describe your app. Claude uses the skill automatically.
+
+**Team and Enterprise plans:** an admin can upload the zip once under
+**Organization settings → Capabilities → Skills** to make it available to
+everyone in the organization.
 
 ## Claude Code
 
@@ -21,6 +33,12 @@ correctly, and contain no secrets.
 
 The skills are then available in every project. Just describe what you want,
 for example "build an EasySignage menu board for my cafe".
+
+To get the latest version of the skills later:
+
+```
+/plugin marketplace update easysignage
+```
 
 **Option B: work inside this repo.** Clone it and run `claude` in the folder.
 Claude Code reads `CLAUDE.md`, which points it to the skills, examples and
@@ -43,13 +61,12 @@ into it and add a line to that project's `AGENTS.md` (or rules file):
 When building EasySignage custom apps, follow skills/easysignage-custom-app/SKILL.md.
 ```
 
-## ChatGPT, Claude.ai and other chat assistants
+## ChatGPT and other chat assistants
 
 Upload or paste
 [`skills/easysignage-custom-app/SKILL.md`](../skills/easysignage-custom-app/SKILL.md)
 and [`sdk/easysignage.js`](../sdk/easysignage.js) into the chat, then ask for
-your app. On Claude.ai you can also zip the `easysignage-custom-app` folder
-and add it as a custom skill.
+your app.
 
 ## Example prompts
 
@@ -71,6 +88,13 @@ Copy one, change the details, and go.
 
 > Here is our Broadsign HTML5 creative in ./old-creative. Migrate it to an
 > EasySignage custom app and tell me which tags to set on each player.
+
+> Build a 3-slide announcement rotator for our school reception. Each slide
+> shows for 10 seconds, text must be readable from 5 metres, and it should
+> work in portrait.
+
+> Make a meeting-room sign that shows the room name from the player's `name`
+> and a "Please knock" message from the `notice` tag, with high contrast.
 
 > Review ./my-app for problems that would stop it working on EasySignage
 > screens, fix them, and package it.

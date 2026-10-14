@@ -36,6 +36,13 @@ offline on old signage webviews, then a `.zip` the user uploads.
    (`overflow: hidden`), no hover or click interactions, `cursor: none`,
    about 40px overscan-safe padding, text large enough to read across a room.
    Support both landscape and portrait.
+8. **Readable and accessible from a distance.** See
+   `references/accessibility.md`. In short: contrast of at least 4.5:1
+   (aim for 7:1), body text at least about 3vh (about 32px on a 1080p screen)
+   and headlines at least about 6vh, at most about 7 lines of text per
+   screen, colour never the only signal, no flashing more than 3 times a
+   second, slow and subtle motion that stops under
+   `prefers-reduced-motion`, `<html lang="...">`, and meaningful `alt` text.
 
 ## Reading player attributes
 
@@ -130,6 +137,8 @@ Before finishing, confirm every item:
 - [ ] Works with no tags at all and with `tags = {}`
 - [ ] Fits landscape and portrait with no scrolling or clipped text
 - [ ] Tag/data strings rendered with `textContent`
+- [ ] Contrast at least 4.5:1, text readable from viewing distance, nothing flashes
+- [ ] `<html lang>` set; animations respect `prefers-reduced-motion`
 - [ ] No `window.BroadSignObject` (removed; use `EasySignage.read()`)
 
 Docs: https://easysignage.com/help/custom-apps/digital-signage-custom-apps/
