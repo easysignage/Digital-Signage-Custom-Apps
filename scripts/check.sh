@@ -32,7 +32,7 @@ if [ ! -f "$APP/index.html" ]; then
 fi
 
 # Files that end up in the zip (same exclusions as package.sh).
-files=$(cd "$APP" && find . -type f ! -name '.DS_Store' ! -name 'Thumbs.db' ! -path '*/.git/*' | sed 's|^\./||')
+files=$(cd "$APP" && find . -type f ! -name '.DS_Store' ! -name 'Thumbs.db' ! -name 'README.md' ! -path '*/.git/*' | sed 's|^\./||')
 web_files=$(echo "$files" | grep -E '\.(html?|css|js)$' || true)
 
 for f in $web_files; do

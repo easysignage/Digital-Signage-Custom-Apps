@@ -17,6 +17,13 @@ through **player tags**.
 
 ## Quick start
 
+**Just want to try it?** Download [player-info.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/player-info.zip),
+upload it under **Media** in EasySignage, and play it on a screen. It shows
+everything that screen sends to custom apps. More ready-made apps are in
+[Examples](#examples).
+
+**Build your own:**
+
 ```bash
 git clone https://github.com/easysignage/Digital-Signage-Custom-Apps.git
 cd Digital-Signage-Custom-Apps
@@ -63,16 +70,25 @@ Full field list: [player attributes](skills/easysignage-custom-app/references/pl
 
 ## Examples
 
-Each example is a complete app. Package any of them with
-`./scripts/package.sh examples/<name>`.
+Each example is a complete app. **Download the zip and upload it to
+EasySignage as-is**, with no coding or zipping needed. Each one's README has
+setup and preview steps.
 
-| Example | What it shows | Tags it reads |
-|---|---|---|
-| [player-info](examples/player-info/) | Every attribute the player sends. Use it to debug a screen. | all |
-| [clock](examples/clock/) | Full-screen clock and date, fully offline | `clock_format`, `greeting`, `accent` |
-| [countdown](examples/countdown/) | Countdown to an event set per screen | `event_name`, `event_date`, `done_text` |
-| [menu-board](examples/menu-board/) | Menu from a local data file, chosen per screen | `menu`, `special` |
-| [zone-promo](examples/zone-promo/) | Different promo and image per store zone | `zone` |
+| Example | What it shows | Tags it reads | Download |
+|---|---|---|---|
+| [player-info](examples/player-info/) | Every attribute the player sends. Use it to debug a screen. | all | [⬇ player-info.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/player-info.zip) |
+| [clock](examples/clock/) | Full-screen clock and date, fully offline | `clock_format`, `greeting`, `accent` | [⬇ clock.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/clock.zip) |
+| [countdown](examples/countdown/) | Countdown to an event set per screen | `event_name`, `event_date`, `done_text` | [⬇ countdown.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/countdown.zip) |
+| [menu-board](examples/menu-board/) | Menu from a local data file, chosen per screen | `menu`, `special` | [⬇ menu-board.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/menu-board.zip) |
+| [zone-promo](examples/zone-promo/) | Different promo and image per store zone | `zone` | [⬇ zone-promo.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/zone-promo.zip) |
+| [starter](templates/starter/) | Minimal template to build your own app | `zone` | [⬇ starter.zip](https://github.com/easysignage/Digital-Signage-Custom-Apps/raw/main/downloads/starter.zip) |
+
+To use one: download the zip, upload it under **Media** in EasySignage, add
+it to a playlist, and assign the playlist to a screen. Then add the tags
+listed to each player to customise it.
+
+To change an example, edit its folder and repackage it with
+`./scripts/package.sh examples/<name>`.
 
 ## Build with AI agents
 
@@ -121,11 +137,12 @@ More setups and prompts: [AI agents guide](docs/ai-agents.md).
 
 ```
 docs/          guides: getting started, best practices, AI agents
+downloads/     ready-to-upload zips of every example
 examples/      complete example apps
 templates/     starter app to copy
 sdk/           easysignage.js, the player-attributes reader
 skills/        AI agent skills (also a Claude Code plugin)
-scripts/       check.sh, package.sh, sync-reader.sh
+scripts/       check.sh, package.sh, build-downloads.sh, sync-reader.sh
 ```
 
 ## Links
@@ -138,7 +155,8 @@ scripts/       check.sh, package.sh, sync-reader.sh
 
 Issues and pull requests are welcome: new examples, fixes, and skill
 improvements. Keep examples small, ES5, dependency-free, and run
-`./scripts/check.sh` on them. Please don't include real player IDs, customer
+`./scripts/check.sh` on them. After changing an example, run
+`./scripts/build-downloads.sh` and commit the updated zips. Please don't include real player IDs, customer
 data or credentials.
 
 ## License

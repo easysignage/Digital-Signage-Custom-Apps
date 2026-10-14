@@ -1,6 +1,8 @@
 # Packaged apps (build them with ./scripts/package.sh)
 dist/
 *.zip
+# ...except the ready-made downloads (rebuild with ./scripts/build-downloads.sh)
+!downloads/*.zip
 
 # OS and editor files
 .DS_Store

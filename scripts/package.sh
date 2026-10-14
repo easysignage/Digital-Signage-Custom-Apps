@@ -27,7 +27,7 @@ OUT="$(cd "$(dirname "$OUT")" && pwd)/$(basename "$OUT")"
 rm -f "$OUT"
 
 # Zip from inside the folder so paths are relative to it.
-(cd "$APP" && zip -r -q -X "$OUT" . -x '.DS_Store' '*/.DS_Store' 'Thumbs.db' '.git/*' '__MACOSX/*')
+(cd "$APP" && zip -r -q -X "$OUT" . -x '.DS_Store' '*/.DS_Store' 'Thumbs.db' '.git/*' '__MACOSX/*' 'README.md')
 
 echo "Created $OUT"
 echo "Next: upload it under Media in EasySignage, add it to a playlist, assign the playlist to a screen."

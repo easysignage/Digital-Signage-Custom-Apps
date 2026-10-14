@@ -22,6 +22,8 @@ For Broadsign creatives, read **`skills/easysignage-broadsign-migration/SKILL.md
 | `skills/` | Agent skills (also published as a Claude Code plugin via `.claude-plugin/`). |
 | `scripts/check.sh` | Lints an app folder for signage problems. |
 | `scripts/package.sh` | Checks and zips an app folder into `dist/<name>.zip`. |
+| `scripts/build-downloads.sh` | Rebuilds the committed `downloads/*.zip` for every example and the starter. |
+| `downloads/` | Ready-to-upload zips linked from the READMEs. Never edit by hand. |
 | `scripts/sync-reader.sh` | Copies `sdk/easysignage.js` into every app and the skill. |
 | `docs/` | Human-readable guide. |
 
@@ -32,6 +34,8 @@ For Broadsign creatives, read **`skills/easysignage-broadsign-migration/SKILL.md
 - Every app folder contains its own copy of `easysignage.js`. If you change
   `sdk/easysignage.js`, run `./scripts/sync-reader.sh`.
 - Run `./scripts/check.sh <folder>` after changes and fix all errors.
+- After changing anything in `examples/` or `templates/starter/`, run
+  `./scripts/build-downloads.sh` and commit the updated zips.
 - Never commit secrets, API keys, customer data or real player IDs. This is a
   public repository.
 - Keep examples small, commented, ES5 and dependency-free.
