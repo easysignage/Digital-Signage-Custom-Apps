@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zone Promo</title>
+    <!--
+      One package, different content per screen. Upload once and assign it to
+      every screen; each screen shows the promo for its `zone` tag.
+
+      Player tags:
+        tags.zone = "north", "south" or "east"  (anything else shows the default)
+
+      Edit the PROMOS table in promo.js to add zones. Put images in images/
+      and reference them with relative paths.
+
+      Preview:
+        index.html?tags.zone=north
+        index.html?tags.zone=south&resolution=1080x1920
+    -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="promo">
+      <img id="image" alt="" />
+      <div id="caption">
+        <h1 id="headline"></h1>
+        <p id="detail"></p>
+      </div>
+    </div>
+
+    <script src="easysignage.js"></script>
+    <script src="promo.js"></script>
+  </body>
+</html>

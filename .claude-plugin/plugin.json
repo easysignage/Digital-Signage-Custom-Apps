@@ -1,0 +1,13 @@
+{
+  "name": "easysignage-custom-apps",
+  "version": "1.0.0",
+  "description": "Build, review, package and migrate EasySignage custom apps (offline HTML5 .zip apps for digital signage screens).",
+  "author": {
+    "name": "EasySignage",
+    "url": "https://easysignage.com"
+  },
+  "homepage": "https://easysignage.com/help/custom-apps/digital-signage-custom-apps/",
+  "repository": "https://github.com/easysignage/Digital-Signage-Custom-Apps",
+  "license": "MIT",
+  "keywords": ["digital-signage", "easysignage", "html5", "signage", "kiosk"]
+}

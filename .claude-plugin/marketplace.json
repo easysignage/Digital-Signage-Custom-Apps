@@ -1,0 +1,17 @@
+{
+  "name": "easysignage",
+  "owner": {
+    "name": "EasySignage",
+    "url": "https://easysignage.com"
+  },
+  "metadata": {
+    "description": "Agent skills for building EasySignage digital signage custom apps."
+  },
+  "plugins": [
+    {
+      "name": "easysignage-custom-apps",
+      "source": ".",
+      "description": "Build, review, package and migrate EasySignage custom apps (offline HTML5 .zip apps for digital signage screens)."
+    }
+  ]
+}

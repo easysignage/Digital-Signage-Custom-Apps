@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My EasySignage App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      EasySignage custom app starter.
+
+      1. Edit app.js and style.css.
+      2. Preview: open index.html in a browser with test values, e.g.
+         index.html?player_id=TEST&name=Lobby&resolution=1920x1080&tags.zone=north
+      3. Package: ./scripts/package.sh templates/starter   (from the repo root)
+      4. Upload the .zip under Media, add it to a playlist, assign to a screen.
+    -->
+    <main id="app">
+      <h1 id="title">Hello, screen</h1>
+      <p id="subtitle"></p>
+    </main>
+
+    <!-- Load the reader first, as a classic script (never type="module"). -->
+    <script src="easysignage.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

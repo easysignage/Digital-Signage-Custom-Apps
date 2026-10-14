@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu Board</title>
+    <!--
+      Cafe menu board driven by a local data file (menu-data.js).
+
+      Edit menu-data.js to change items and prices, then re-zip and re-upload.
+      The data is a plain script that sets a global, not a .json file loaded
+      with fetch(): fetch() of local files fails on many players under file://.
+
+      Optional player tags:
+        tags.menu    = which menu to show, e.g. "breakfast" or "lunch" (default: first)
+        tags.special = a line shown in the footer banner
+
+      Preview:
+        index.html?tags.menu=lunch&tags.special=Free%20cookie%20with%20any%20coffee
+    -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="menu-title"></h1>
+    </header>
+    <main id="sections"></main>
+    <footer id="special"></footer>
+
+    <script src="easysignage.js"></script>
+    <script src="menu-data.js"></script>
+    <script src="menu.js"></script>
+  </body>
+</html>

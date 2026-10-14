@@ -1,0 +1,14 @@
+# Packaged apps (build them with ./scripts/package.sh)
+dist/
+*.zip
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment files. Never commit secrets to this public repo.
+.env
+.env.*
+.claude/settings.local.json

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clock</title>
+    <!--
+      Full-screen clock and date. Works fully offline.
+
+      Optional player tags:
+        tags.clock_format = "12" or "24"   (default 24)
+        tags.greeting     = text under the date, e.g. "Welcome to Level 3"
+        tags.accent       = a CSS colour, e.g. "#ff6a00"
+
+      Preview:
+        index.html?name=Lobby&tags.clock_format=12&tags.greeting=Welcome&tags.accent=%23ff6a00
+    -->
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; cursor: none; }
+      body {
+        background: #0b0d12; color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        text-align: center;
+      }
+      #time { font-size: 18vw; font-weight: 200; line-height: 1; letter-spacing: -0.02em; }
+      #ampm { font-size: 5vw; margin-left: 1vw; }
+      #date { font-size: 4vw; margin-top: 2vh; color: #9aa3b5; }
+      #greeting { font-size: 3vw; margin-top: 4vh; }
+      .portrait #time { font-size: 26vw; }
+      .portrait #date { font-size: 6vw; }
+      .portrait #greeting { font-size: 5vw; }
+    </style>
+  </head>
+  <body>
+    <div><span id="time"></span><span id="ampm"></span></div>
+    <div id="date"></div>
+    <div id="greeting"></div>
+
+    <script src="easysignage.js"></script>
+    <script src="clock.js"></script>
+  </body>
+</html>

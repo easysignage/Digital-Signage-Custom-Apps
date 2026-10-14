@@ -1,0 +1,46 @@
+/* Stick to flexbox, fixed px/vw/vh sizes and CSS variables. Older signage
+   webviews (Chromium ~53) do not support CSS grid, clamp() or flex `gap`. */
+:root {
+  --bg: #0f1115;
+  --text: #ffffff;
+  --muted: #9aa3b5;
+  --accent: #4f9cff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* signage has no scrollbars */
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  cursor: none;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px; /* overscan-safe edge */
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 7vw;
+  color: var(--accent);
+}
+
+p {
+  margin: 2vh 0 0;
+  font-size: 3vw;
+  color: var(--muted);
+}
+
+/* Portrait screens: size text from the narrower side. */
+.portrait h1 { font-size: 10vw; }
+.portrait p { font-size: 5vw; }
